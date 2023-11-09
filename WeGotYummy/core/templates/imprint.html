@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- import of the css file -->
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <title>Imprint Page</title>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+        <img class="header__logo" src="{% static 'logo.jpg' %}" alt="This is image">
+        <div class="header__logo-text">Recipes</div>
+        <nav class="header__nav">
+          <a href="/index">Home</a>
+          <a href="/imprint">Imprint</a>
+          <a href="#">Recipes</a>
+          <a href="#">Ingredients</a>
+          <a href="#">FAQ</a>
+          <a href="/maintenance">Maintenence</a>
+        </nav>
+        <img class="header__avatar" src="https://static.vecteezy.com/system/resources/previews/021/079/672/original/user-account-icon-for-your-design-only-free-png.png" alt="Avatar Logo">
+    </header>
+    <main>  
+      <div class="contact">
+        <div class="contact__info">
+          <div class="contant__title">Contact Us</div>
+          <div class="contact__location"><b>Address:</b> Constructor University, Bremen 28759, Germany </div>
+          <div class="contact__email"><b>Email:</b>zabulkasso at constructor.university</div>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2391.8334442694972!2d8.651623700000012!3d53.167027700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b12ca1e7c06c65%3A0x903fa1786c3fd4e9!2sConstructor%20University!5e0!3m2!1sru!2sde!4v1697569775128!5m2!1sru!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="disclaimer">
+        <h1 class="disclaimer__title">
+          Disclaimer
+        </h1>
+        <p class="disclaimer__text">
+          This website is student lab work and does not necessarily reflect Jacobs University Bremen opinions. Jacobs University Bremen does not endorse this site, nor is it checked by Jacobs University
+          Bremen regularly, nor is it part of the official Jacobs University Bremen web presence.
+          For each external link existing on this website, we initially have checked that the target page
+          does not contain contents which is illegal wrt. German jurisdiction. However, as we have no in-
+          fluence on such contents, this may change without our notice. Therefore we deny any responsib-
+          ility for the websites referenced through our external links from here.
+          No information conflicting with GDPR is stored in the server.
+        </p>
+      </div>
+    </main>
+    <footer class="footer">
+      <p><b>© 2023 We Got Yummy Recipes.</b> All right reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

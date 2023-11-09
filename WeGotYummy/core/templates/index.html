@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- import of the css file -->
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <title>Home page</title>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+        <img class="header__logo" src="{% static 'logo.jpg' %}" alt="This is image">
+        <div class="header__logo-text">We Got Yummy</div>
+        <nav class="header__nav">
+          <a href="/index">Home</a>
+          <a href="/imprint">Imprint</a>
+          <a href="#">Recipes</a>
+          <a href="#">Ingredients</a>
+          <a href="#">FAQ</a>
+          <a href="/maintenance">Maintenence</a>
+        </nav>
+        <img class="header__avatar" src="https://static.vecteezy.com/system/resources/previews/021/079/672/original/user-account-icon-for-your-design-only-free-png.png" alt="Avatar Logo">
+    </header>
+    <main>
+      <div class="hero">
+        <img src="{% static 'foog.png' %}" class="hero__image" alt="">
+        <div class="hero__info">
+          <h1 class="hero__text">Discover the world of culinary delights at your fingertips!</h1>
+          <button class="hero__button">Start now!</button>
+        </div>
+      </div>
+      <div class="about">
+        <div class="about__info">
+          <div class="about__title">About Us</div>
+          <div class="about__text">We are a passionate team of food enthusiasts, and our aim is to make home cooking easy and exciting for everyone. </div>
+          <div class="about__text">We're dedicated to providing a one-stop destination for culinary exploration, where you can find, create, and connect with a world of flavors. </div>
+          <div class="about__text">With a love for food and a commitment to user satisfaction, we're here to help you transform your kitchen into a culinary haven.
+           </div>
+          <div class="about__text">(c) Abulkassova Z.</div>
+          <div class="about__text">    Simonishvili K.</div>
+          <div class="about__text">    Sordia L.</div>
+        </div>
+        <img src="https://assets.architecturaldigest.in/photos/6188f39b20afa08b81fd39c0/master/w_1600%2Cc_limit/cloud%25206.jpg" class="about__image">
+      </div>
+      <div class="faq">
+        <img src="https://assets.architecturaldigest.in/photos/6188f39b20afa08b81fd39c0/master/w_1600%2Cc_limit/cloud%25206.jpg" class="faq__image">
+        <div class="faq__info">
+          <div class="faq__title">FAQ</div>
+          <div>
+            <div class="faq__question">How do I search for recipes ?</div>
+            <div class="faq__text">You can easily search for recipes by using the search bar at the top of the screen. Later, you can filter your results by cuisine, dietary restrictions, preparation time, and more.</div>
+          </div>
+          <div>
+            <div class="faq__question">How do I submit my own recipes?</div>
+            <div class="faq__text">To share your culinary creations with the community, simply create an account, log in, and navigate to your profile. From there, you can add and publish your recipes.</div>
+          </div>
+          <div>
+            <div class="faq__question">Can I print or save recipes ?</div>
+            <div class="faq__text">Yes, Recepies can be saved and downloaded for offline use. Look for the "Print" or "Save" options on each recipe page.</div>
+          </div>
+        </div>
+      </div>
+      <div class="aims">
+        <div class="aims__title">Our Aims</div>
+        <div class="aims__row">
+          <div class="aims__col">
+            <div class="aims__number">1</div>
+            <div class="aims__col-title">Simplicity</div>
+            <div class="aims__text">We provide easy access to a wide range of recipes, cooking tips, and time-saving features, making cooking enjoyable and efficent for eveyone.</div>
+          </div>
+          <div class="aims__col">
+            <div class="aims__number">2</div>
+            <div class="aims__col-title">Inspiration</div>
+            <div class="aims__text">We encourage you to explore new flavors, techniques, and dishes through a wealth of exciting recipes. </div>
+          </div>
+          <div class="aims__col">
+            <div class="aims__number">3</div>
+            <div class="aims__col-title">Community</div>
+            <div class="aims__text">We aim to create a space where experienced, intermediate, or beginner cooks can connect, interact, and share their knowledge.</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact" style="padding: 50px 100px;">
+        <div class="contact__info">
+          <div class="contant__title">Contact Us</div>
+          <div class="contact__location"><b>Address:</b> Constructor University, Bremen 28759, Germany </div>
+          <div class="contact__email"><b>Email:</b> XXX@constructor.university</div>
+          <div class="contact__email"><b>Phone number:</b>XXX XXX XXX</div>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2391.8334442694972!2d8.651623700000012!3d53.167027700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b12ca1e7c06c65%3A0x903fa1786c3fd4e9!2sConstructor%20University!5e0!3m2!1sru!2sde!4v1697569775128!5m2!1sru!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </main>
+    <footer class="footer">
+      <p><b>© 2023 We Got Yummy Recipes.</b> All right reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

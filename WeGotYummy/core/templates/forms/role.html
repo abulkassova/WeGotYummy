@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <title>Maintenence</title>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <img class="header__logo" src="{% static 'logo.jpg' %}" alt="This is image">
+      <div class="header__logo-text">We Got Yummy</div>
+      <nav class="header__nav">
+        <a href="/index">Home</a>
+        <a href="/imprint">Imprint</a>
+        <a href="#">Receipts</a>
+        <a href="#">Ingredients</a>
+        <a href="#">FAQ</a>
+        <a href="/maintenance">Maintenence</a>
+      </nav>
+      <img class="header__avatar" src="https://static.vecteezy.com/system/resources/previews/021/079/672/original/user-account-icon-for-your-design-only-free-png.png" alt="Avatar Logo">
+    </header>
+    <main>
+      <div class="form-wrapper">
+        <h1 class="form__title">Ingredient</h1>
+        <form class="form" method="post" action=".">
+
+          {% csrf_token %}
+          <div class="input-control">
+            <label for="">Name of the role</label>
+            {{ form.name }}
+          </div>
+          <button class="form__button" id="submit-button"
+              type="submit">
+            Create Role
+          </button>
+        </form>
+      </div>
+    </main>
+    <footer class="footer">
+      <p><b>© 2023 We Got Yummy Receipts.</b> All right reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
+
