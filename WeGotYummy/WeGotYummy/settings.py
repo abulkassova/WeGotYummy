@@ -25,10 +25,7 @@ SECRET_KEY = 'django-insecure-vfuk4=msuijtj8+mks1m0@3d0^efs1ow#hy@qi-tda-#v+e#a4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    'clabsql.clamv.jacobs-university.de'
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
