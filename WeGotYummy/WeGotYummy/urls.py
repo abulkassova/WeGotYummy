@@ -19,6 +19,7 @@ from django.urls import path
 from core.views import *
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,5 +33,13 @@ urlpatterns = [
     path('create-recipe/', create_recipe, name='create-recipe_page'),
     path('create-role/', create_role, name='create-role_page'),
     path('create-recipe-ingedient/', create_recipe_ingredient, name='create-recipe-ingredient_page'),
-
+    path('users/', search_users, name='search-users_page'),
+    path('users/<int:pk>/', users_detail, name='user-detail_page'),
+    path('recipes/', search_recipes, name='search-recipes_page'),
+    path('recipes/<int:pk>/', recipes_detail, name='recipe-detail_page'),
+    path('ingredients/', search_ingredients, name='search-ingredients_page'),
+    path('ingredients/<int:pk>/', ingredients_detail, name='ingredient-detail_page'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html',authentication_form=LoginForm), name='login_page'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout_page'),
+    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

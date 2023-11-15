@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Search Users</title>
+</head>
+<body>
+    <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
+        <div class="col-span-1">
+            <form method="get" action="/users">
+                <input name="query" class="w-full py-4 px-6 border rounded-xl" type="text" value="{{ query }}" placeholder="Search by username or address">
+
+                <button class="mt-2 py-4 px-8 text-lg bg-teal-500 text-white rounded-xl">Search</button>
+            </form>
+
+            <hr class="my-6">
+
+            <p class="font-semibold">Roles</p>
+
+            <ul>
+                {% for role in roles %}
+                    <li class="py-2 px-2 rounded-xl{% if role.id == role_id %} bg-gray-200{% endif %}">
+                        <a href="/users?query={{ query }}&role={{ role.id }}">{{ role.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <hr class="my-6">
+
+            <p class="font-semibold">Clear filters</p>
+
+            <ul>
+                <li><a href="/users" class="mt-2 py-4 px-8 inline-block bg-yellow-500 text-lg rounded-xl text-white">Clear</a>
+        </div>
+
+        <div class="col-span-3">
+            <div class="grid grid-cols-3 gap-3">
+                {% for user_recipes_count in user_recipes_counts %}
+                    <div>
+                        <a href="/users/{{ user_recipes_count.user.id }}">
+                            {% comment %} <div>
+                                <img src="{{ item.image.url }}" class="rounded-t-xl">
+                            </div> {% endcomment %}
+    
+                            <div class="p-6 bg-white rounded-b-xl">
+                                <h2 class="text-2xl">{{ user_recipes_count.user.username }}</h2>
+                                <p class="text-gray-500">Number of recipes: {{ user_recipes_count.recipes_count }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

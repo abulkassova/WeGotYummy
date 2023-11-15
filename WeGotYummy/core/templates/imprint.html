@@ -6,20 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- import of the css file -->
-  <link rel="stylesheet" type="text/css" href="../static/style.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
   <title>Imprint Page</title>
 </head>
 <body>
   <div class="wrapper">
     <header class="header">
-      <div class="category-wrap">
-        <h3>Search</h3>
-        <ul>
-          <li><a href="">Search Users</a></li>
-          <li><a href="">Search Recipes</a></li>
-          <li><a href="">Search Ingredients</a></li>
-        </ul>
-      </div>
         <img class="header__logo" src="{% static 'logo.jpg' %}" alt="This is image">
         <div class="header__logo-text">Recipes</div>
         <nav class="header__nav">

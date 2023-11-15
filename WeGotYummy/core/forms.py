@@ -91,3 +91,13 @@ class CreateRecipeIngredientForm(forms.Form):
         required=True,
         widget=forms.Select(attrs={'class': 'info'}),
     )
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': 'Your username',
+        'class': 'input100'
+    }))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'placeholder': 'Your username',
+        'class': 'input100'
+    }))

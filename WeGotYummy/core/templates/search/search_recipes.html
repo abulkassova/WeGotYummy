@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Search Users</title>
+</head>
+<body>
+    <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
+        <div class="col-span-1">
+            <form method="get" action="/recipes">
+                <input name="query" class="w-full py-4 px-6 border rounded-xl" type="text" value="{{ query }}" placeholder="Search by title">
+
+                <button class="mt-2 py-4 px-8 text-lg bg-teal-500 text-white rounded-xl">Search</button>
+            </form>
+
+            <hr class="my-6">
+
+            <p class="font-semibold">Difficulties</p>
+
+            <ul>
+                {% for difficulty in difficulties %}
+                    <li class="py-2 px-2 rounded-xl{% if difficulty == chosen_difficulty %} bg-gray-200{% endif %}">
+                        <a href="/recipes?query={{ query }}&difficulty={{ difficulty }}">{{ difficulty }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <hr class="my-6">
+
+            <p class="font-semibold">Clear filters</p>
+
+            <ul>
+                <li><a href="/recipes" class="mt-2 py-4 px-8 inline-block bg-yellow-500 text-lg rounded-xl text-white">Clear</a>
+        </div>
+
+        <div class="col-span-3">
+            <div class="grid grid-cols-3 gap-3">
+                {% for recipes_ingredients_count in recipes_ingredients_counts %}
+                    <div>
+                        <a href="/recipes/{{ recipes_ingredients_count.recipe.id }}">
+                            {% comment %} <div>
+                                <img src="{{ item.image.url }}" class="rounded-t-xl">
+                            </div> {% endcomment %}
+    
+                            <div class="p-6 bg-white rounded-b-xl">
+                                <h2 class="text-2xl">{{ recipes_ingredients_count.recipe.title }}</h2>
+                                <p class="text-gray-500">Number of recipes: {{ recipes_ingredients_count.ingredients_count }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

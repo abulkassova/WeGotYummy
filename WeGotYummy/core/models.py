@@ -79,7 +79,7 @@ class Recipe(models.Model):
 
 
     class DifficultyType(models.TextChoices):
-        UNDEFINED = ''
+        UNDEFINED = 'Undefined'
         EASY = 'Easy'
         NORMAL = 'Normal'
         DIFFICULT = 'Difficult'
