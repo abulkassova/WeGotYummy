@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
 from .models import *
 from django.db.models import Q
+from WeGotYummy.middleware.stats_middleware import StatsMiddleware
 
 def index(request):
     return render(request, 'index.html')
@@ -28,6 +29,8 @@ def create_user(request):
             user.save()
 
             return redirect('/')
+        else:
+            StatsMiddleware.log_error(request, form.errors.as_text())
     else:
         form = RegistrationForm()
 
@@ -48,6 +51,8 @@ def create_ingredient_category(request):
             category.save()
 
             return redirect('/')
+        else:
+            StatsMiddleware.log_error(request, form.errors.as_text())
     else:
         form = CreateIngredientCategoryForm()
 
@@ -69,6 +74,8 @@ def create_ingredient(request):
             ingredient.save()
 
             return redirect('/')
+        else:
+            StatsMiddleware.log_error(request, form.errors.as_text())
     else:
         form = CreateIngredientForm()
 
@@ -89,6 +96,8 @@ def create_recipe(request):
             recipe.save()
 
             return redirect('/')
+        else:
+            StatsMiddleware.log_error(request, form.errors.as_text())
     else:
         form = CreateRecipeForm()
 
@@ -109,6 +118,8 @@ def create_role(request):
             role.save()
 
             return redirect('/')
+        else:
+            StatsMiddleware.log_error(request, form.errors.as_text())
     else:
         form = CreateRoleForm()
 
@@ -132,6 +143,8 @@ def create_recipe_ingredient(request):
             recipe.ingredients.add(ingredients)
 
             return redirect('/')
+        else:
+            StatsMiddleware.log_error(request, form.errors.as_text())
     else:
         form = CreateRecipeIngredientForm()
 
