@@ -41,5 +41,11 @@ urlpatterns = [
     path('ingredients/<int:pk>/', ingredients_detail, name='ingredient-detail_page'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html',authentication_form=LoginForm), name='login_page'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout_page'),
+
+    # api endpoints
+    path('autocomplete_users', autocomplete_users, name='autocomplete_users'),
+    path('autocomplete_ingredients', autocomplete_ingredients, name='autocomplete_ingredients'),
+    path('autocomplete_recipes', autocomplete_recipes, name='autocomplete_recipes'),
     
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

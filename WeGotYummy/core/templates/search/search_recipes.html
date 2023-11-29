@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
     <title>Search Users</title>
 </head>
 <body>
     <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
         <div class="col-span-1">
             <form method="get" action="/recipes">
-                <input name="query" class="w-full py-4 px-6 border rounded-xl" type="text" value="{{ query }}" placeholder="Search by title">
+                <input name="query" id="autocomplete" class="w-full py-4 px-6 border rounded-xl" type="text" value="{{ query }}" placeholder="Search by title">
 
                 <button class="mt-2 py-4 px-8 text-lg bg-teal-500 text-white rounded-xl">Search</button>
             </form>
@@ -55,4 +58,26 @@
         </div>
     </div>
 </body>
+<script>
+    $(document).ready(function() {
+        $("#autocomplete").autocomplete({
+          source: function(request, response) {
+            $.ajax({
+              url: '/autocomplete_recipes',
+              method: 'GET',
+              dataType: 'json',
+              data: {
+                term: request.term
+              },
+              success: function(data) {
+                response(data);
+              },
+              error: function() {
+                response([]);
+              }
+            });
+          }
+        });
+      });
+</script>
 </html>

@@ -3,6 +3,7 @@ from .forms import *
 from .models import *
 from django.db.models import Q
 from WeGotYummy.middleware.stats_middleware import StatsMiddleware
+from django.http import JsonResponse
 
 def index(request):
     return render(request, 'index.html')
@@ -241,3 +242,21 @@ def ingredients_detail(request, pk):
     return render(request, 'search/ingredient_detail.html', {
         'ingredient': ingredient,
     })
+
+def autocomplete_users(request):
+    query = request.GET.get('term', '')
+    users = User.objects.filter(username__startswith=query).values_list('username', flat=True)
+    usernames = list(users)
+    return JsonResponse(usernames, safe=False)
+
+def autocomplete_ingredients(request):
+    query = request.GET.get('term', '')
+    ingredients = Ingredient.objects.filter(name__startswith=str(query)).values_list('name', flat=True)
+    names = list(ingredients)
+    return JsonResponse(names, safe=False)
+
+def autocomplete_recipes(request):
+    query = request.GET.get('term', '')
+    recipes = Recipe.objects.filter(title__startswith=query).values_list('title', flat=True)
+    titles = list(recipes)
+    return JsonResponse(titles, safe=False)
