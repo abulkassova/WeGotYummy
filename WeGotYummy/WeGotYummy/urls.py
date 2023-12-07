@@ -47,5 +47,7 @@ urlpatterns = [
     path('autocomplete_ingredients', autocomplete_ingredients, name='autocomplete_ingredients'),
     path('autocomplete_recipes', autocomplete_recipes, name='autocomplete_recipes'),
     
+    # map
+    path('map/', location, name='map_page'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

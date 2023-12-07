@@ -4,6 +4,7 @@ from .models import *
 from django.db.models import Q
 from WeGotYummy.middleware.stats_middleware import StatsMiddleware
 from django.http import JsonResponse
+from requests import *
 
 def index(request):
     return render(request, 'index.html')
@@ -260,3 +261,27 @@ def autocomplete_recipes(request):
     recipes = Recipe.objects.filter(title__startswith=query).values_list('title', flat=True)
     titles = list(recipes)
     return JsonResponse(titles, safe=False)
+
+def location(request):
+    client_ip = request.META.get('REMOTE_ADDR')
+    ip_info = get(f"https://ipinfo.io/{client_ip}?token=cd990e2503e22c").json()
+
+    if ip_info.get('bogon'): #local ipaddress
+        client_ip = get('https://api.ipify.org').text
+        ip_info = get(f"https://ipinfo.io/{client_ip}?token=cd990e2503e22c").json()
+
+    coordinates = ip_info.get('loc', '').split(',')
+
+    try:
+        latitude = float(coordinates[0])
+        longitude = float(coordinates[1])
+    except:
+        return redirect('/')
+    
+    context = {
+        'latitude': latitude,
+        'longitude': longitude,
+        'ip_address': client_ip,
+    }
+
+    return render(request, 'map/map.html', context)
